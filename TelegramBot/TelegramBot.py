@@ -3,7 +3,7 @@ import qrcode
 import qrcode.image.svg
   
 
-with open('Project_Misc/TelegramBot/token.txt', 'r') as f:
+with open('TelegramBot/token.txt', 'r') as f:
     Token = f.read()
 
 
@@ -29,7 +29,7 @@ def contact(update, context):
     update.message.reply_text("mdataurlikhon00@gmail.com")
     
 def picture(update, context):
-    update.message.reply_photo(open('Project_Misc/TelegramBot/general.png', 'rb'))
+    update.message.reply_photo(open('TelegramBot/general.png', 'rb'))
     
 def handle_message(update, context):
     update.message.reply_text(f"You said {update.message.text}")
@@ -39,7 +39,7 @@ def text_to_qr(update, context):
     text_in = text_in[11:]   
     img = qrcode.make(text_in)
     img.save('Project_Misc/TelegramBot/bot.png')
-    update.message.reply_photo(open('Project_Misc/TelegramBot/bot.png', 'rb'))
+    update.message.reply_photo(open('TelegramBot/bot.png', 'rb'))
 
 updater = telegram.ext.Updater(Token, use_context=True)
 disp = updater.dispatcher
